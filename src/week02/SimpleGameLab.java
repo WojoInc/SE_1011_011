@@ -26,7 +26,9 @@ public class SimpleGameLab {
         //randomly generate a number and assign it to a variable for later use
         Random generator = new Random();
         int randInt = generator.nextInt(10) + 1; //give it a range [1 , 10]
-        System.out.println(randInt); //to test if the generator gives intended results
+        //6
+        // 6
+        //System.out.println(randInt); //to test if the generator gives intended results
 
         //display initial prompt to the user and grab user input
         inputString = JOptionPane.showInputDialog(null, "I'm thinking of a number between 1 and 10. What is it? You have "
@@ -50,7 +52,7 @@ public class SimpleGameLab {
                 guessesLeft++;//increment guesses left
                 playerScore++;//increment players score
                 randInt = generator.nextInt(10) + 1;//generate new integer for player to guess
-                System.out.println(randInt); //to test if the generator gives intended results
+                //System.out.println(randInt); //to test if the generator gives intended results
                 inputString = JOptionPane.showInputDialog(null, "Well done! Try to guess another! You have "
                         + guessesLeft + " guess(es) left.");
                 playerGuess = Integer.parseInt(inputString);
