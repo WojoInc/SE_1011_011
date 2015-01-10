@@ -17,6 +17,9 @@ public class BannerDriver {
         System.out.println(testBanner.getTitle());
         System.out.println(testBanner.getDescription());
         System.out.println(testBanner.getAuthor());
+        System.out.println(testBanner.getTitle());
+        System.out.println(testBanner.getDescription());
+        System.out.println(testBanner.getAuthor());
 
     }
 }
