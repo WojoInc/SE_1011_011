@@ -12,29 +12,17 @@ import week03.Stopwatch;
 
 public class PrimeNumberLab1 {
 
-    public static void getInput(){
+    public static String[] getInput(){
         String userString, option = "";
+        String [] output = new String[2];
         JOptionPane.showMessageDialog(null, "Welcome, this program will determine the number of "
                 + "primes between 0 and a number you input. Including 1.");     
         userString = JOptionPane.showInputDialog("Please input a number: ");
         option = JOptionPane.showInputDialog("Print verbose output? (y/n)");
+        output[0] = userString;
+        output[1] = option;
 
-        int[] output = new int[Integer.parseInt(userString) + 1];
-        int numberOfPrimes = 0;
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.start();
-        output = sieve(Integer.parseInt(userString));
-
-        if (option.compareTo("y")== 0){
-            numberOfPrimes = countPrimes(output, Integer.parseInt(userString), true);
-        }
-        else{
-            numberOfPrimes = countPrimes(output, Integer.parseInt(userString), false);
-        }
-        stopwatch.stop();
-        System.out.println("Completed in: " + stopwatch.returnTimeMilliseconds(stopwatch.exeTime) + " milliseconds.");
-
-        JOptionPane.showMessageDialog(null,"There are " + numberOfPrimes + " primes.");
+        return output;
     }
 
     /**
@@ -100,7 +88,23 @@ public class PrimeNumberLab1 {
     }
     public static void main(String[] args) {
 
-        getInput();
+        String[] inputStrings = getInput();
+        int[] output = new int[Integer.parseInt(inputStrings[0]) + 1];
+        int numberOfPrimes = 0;
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.start();
+        output = sieve(Integer.parseInt(inputStrings[0]));
+
+        if (inputStrings[1].compareTo("y")== 0){
+            numberOfPrimes = countPrimes(output, Integer.parseInt(inputStrings[0]), true);
+        }
+        else{
+            numberOfPrimes = countPrimes(output, Integer.parseInt(inputStrings[0]), false);
+        }
+        stopwatch.stop();
+        System.out.println("Completed in: " + stopwatch.returnTimeMilliseconds(stopwatch.exeTime) + " milliseconds.");
+
+        JOptionPane.showMessageDialog(null,"There are " + numberOfPrimes + " primes.");
 
     }
 }

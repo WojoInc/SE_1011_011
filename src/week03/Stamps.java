@@ -1,5 +1,7 @@
 package week03;
 
+import java.util.ArrayList;
+
 /**
  * Purpose:
  *
@@ -10,6 +12,10 @@ package week03;
  */
 public class Stamps {
     public static void main(String[] args) {
+        ArrayList<Integer> test = new ArrayList<Integer>();
+        while(true){
+            test.add(1);
+        }
 
     }
 }
