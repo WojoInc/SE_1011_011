@@ -1,12 +1,13 @@
 package week04;
 
 /**
- * Purpose:
+ * Purpose: This class functions as a simple class to store multiple string variables that can be called by the driver
+ * class by using the various get methods.
  *
- * @author:Owner
+ * @author:wesolowskitj
  * @version: 1.1
  * <p/>
- * Created by Owner on 1/8/2015 at 3:02 PM.
+ * Created on 1/8/2015 at 3:02 PM.
  */
 public class Banner {
 
