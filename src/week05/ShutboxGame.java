@@ -24,24 +24,57 @@ public class ShutboxGame {
         }
         return players;
     }
-    public static void mainGame(ArrayList<Player> players){
+    private static int promptPlayer(int die1, int die2, ArrayList<Integer> remainTiles){
+        String userInput;
+        userInput = JOptionPane.showInputDialog("Your remaining numbers: " + remainTiles + "You rolled " + die1 + " and a "
+               + die2 + " Please type the number you would like to remove");
+        return Integer.parseInt(userInput);
+
+    }
+    public static ArrayList<Player> mainGame(ArrayList<Player> players){
+
         for(int i=0; i<=players.size()-1; i++){
             Player currentPlayer = players.get(i);
+            ShutboxBoard currentBoard = new ShutboxBoard();
+            int currentNumber = 0;
             currentPlayer.nextTurn();
-            int[] diceValues = currentPlayer.getDice();
-            System.out.println(currentPlayer.getPlayerName());
-            System.out.println(diceValues[0]);
-            System.out.println(diceValues[1]);
+            while (currentPlayer.getDice(0) != 0 || currentPlayer.getDice(1) != 0){
+                currentNumber = promptPlayer(currentPlayer.getDice(0),currentPlayer.getDice(1),currentBoard.getRemainingTiles());
+                if (currentBoard.queryTiles(currentNumber) == 0){
+                    currentBoard.removeTiles(currentNumber);
+                    currentPlayer.diceUsed(currentNumber);
+                }
+                else{
+                    currentNumber = promptPlayer(currentPlayer.getDice(0),currentPlayer.getDice(1),currentBoard.getRemainingTiles());
+                }
+                currentPlayer.nextTurn();
+            }
+            currentPlayer.setPlayerScore(currentBoard.calcScore());
+
         }
 
-
+        return players;
+    }
+    public static void results(ArrayList<Player> players){
+        String currentWinner = "";
+        int currentScore = 0;
+        for(int i =0; i<players.size()-1; i++){
+            if(players.get(i).getPlayerScore() > currentScore){
+                currentScore = players.get(i).getPlayerScore();
+                currentWinner = players.get(i).getPlayerName();
+            }
+        }
+        JOptionPane.showMessageDialog(null,"The winner is: " + currentWinner + ". Thanks for playing!");
     }
     public static void main(String[] args) {
         String description = "Description: Each player attempts to get the lowest score by removing numbers based on the rolling of "
                 + "two dice.";
         String author = "wesolowskitj";
+        ArrayList<Player> players;
         Banner welcomeBanner = new Banner("ShutBox Game", description, author);
         JOptionPane.showMessageDialog(null, welcomeBanner.getDescription(),welcomeBanner.getTitle(),1);
-        mainGame(configurePlayers());
+        players = mainGame(configurePlayers());
+        results(players);
+
     }
 }

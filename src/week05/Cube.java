@@ -29,7 +29,7 @@ public class Cube {
     public int getFaceUp(){
         return this.faceUp;
     }
-
+    public void setFaceUp(int input){this.faceUp = input;}
 //class methods
     public void roll(){
         Random generator = new Random();

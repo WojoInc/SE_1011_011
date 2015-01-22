@@ -14,37 +14,28 @@ public class ShutboxBoard {
 
     private ArrayList<Integer> tiles = new ArrayList<Integer>();
 
-    public void removeTiles(int die1, int die2, int option){
-        switch (option){
-            case 0:
-                if(tiles.contains((die1+die2))){
-                tiles.remove(tiles.indexOf((die1+die2)));
-            }
-            case 1:
-                if(tiles.contains(die1)){
-                    tiles.remove(tiles.indexOf(die1));
-                }
-                if(tiles.contains(die2)){
-                    tiles.remove(tiles.indexOf(die2));
-                }
+    public void removeTiles(int die) {
+        if (tiles.contains(die)) {
+            tiles.remove(tiles.indexOf(die));
         }
     }
-    public ArrayList<Integer> queryTiles(int die1, int die2){
-        ArrayList<Integer> result = new ArrayList<Integer>();
-
-        if(tiles.contains(die1)){
-            result.add(die1);
+    public int queryTiles(int die){
+        if (tiles.contains(die) == true){
+            return 0;
         }
-        if(tiles.contains(die2)){
-            result.add(die2);
+        else{
+            return 1;
         }
-        if(tiles.contains((die1+die2))){
-            result.add((die1 + die2));
-        }
-        return tiles;
     }
     public ArrayList<Integer> getRemainingTiles(){
         return this.tiles;
+    }
+    public int calcScore(){
+        int score = 0;
+        for(int i =0; i<tiles.size()-1; i++){
+            score = score + tiles.get(i);
+        }
+        return score;
     }
 
     public ShutboxBoard(){

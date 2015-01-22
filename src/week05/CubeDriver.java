@@ -13,7 +13,7 @@ public class CubeDriver {
         Banner welcomeBanner = new Banner("Cube Game","Testing Cube class","wesolowskitj");
         Cube testCube = new Cube("player 1",20);
         int x = 0;
-        while(x<51){
+        while(x<501){
             testCube.roll();
             System.out.println(testCube.getFaceUp());
             x++;

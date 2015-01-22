@@ -23,25 +23,34 @@ public class Player {
         die2.roll();
 
     }
-
-    public int[] getDice(){
-        int[] diceValues = {die1.getFaceUp(),die2.getFaceUp()};
-        return diceValues;
+    public void diceUsed(int input){
+        if(input == die1.getFaceUp()){
+            die1.setFaceUp(0);
+        }
+        else if(input == die2.getFaceUp()){
+            die2.setFaceUp(0);
+        }
+        else if(input == die1.getFaceUp() + die2.getFaceUp()){
+            die1.setFaceUp(0);
+            die2.setFaceUp(0);
+        }
+    }
+    public int getDice(int die){
+        if(die == 0) {
+            return die1.getFaceUp();
+        }
+        else {
+            return die2.getFaceUp();
+        }
     }
     public String getPlayerName(){
         return this.playerName;
     }
-
-   /*public void calcScore(){
-        ArrayList<Integer> tilesLeft = playerBox.getRemainingTiles();
-        for(int i=0; i< tilesLeft.size()-1; i++){
-            playerScore = playerScore + tilesLeft.get(i);
-        }
-
-    }*/
     public void setPlayerScore(int playerScore){
          this.playerScore = playerScore;
     }
+    public int getPlayerScore(){return this.playerScore;}
+
     public Player(String playerName){
         this.playerName = playerName;
     }
