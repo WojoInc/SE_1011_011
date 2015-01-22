@@ -6,7 +6,8 @@ import javax.swing.*;
 
 /**
  * Labs 1011-011
- * Purpose:
+ * Purpose: This class serves as the driver for the PigGame class, and helps connect user input and the methods
+ * of the PigGame class.
  *
  * @author wesolowskitj
  * @version 1.0 Created on 1/22/2015 at 1:01 AM
@@ -59,6 +60,7 @@ public class PigGameDriver {
                 currentGame.roll();
                 currentPlayer = currentGame.getCurrentPlayer();
             }
+
             else if (userInput.compareTo("n") == 0) {
                 currentPlayer.setPlayerScore(currentPlayer.getPlayerScore() + currentGame.getTurnSum());
                 playerWon = currentGame.playerWon();

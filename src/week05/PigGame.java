@@ -66,9 +66,16 @@ public class PigGame {
      */
     private void checkWild(){
         if(die1.getFaceUp() == wildNum || die2.getFaceUp() == wildNum){
-            JOptionPane.showMessageDialog(null,"You rolled a multiple"
-            + " of the wild number. You have lost all points gained this turn. \nYour current score: "
+            JOptionPane.showMessageDialog(null,"You rolled the wild number." +
+                    "\nYou have lost all points gained this turn. \nYour current score: "
             + players[currentPlayer].getPlayerScore());
+            this.nextPlayer();
+            this.roll();
+        }
+        else if(die1.getFaceUp() % wildNum == 0|| die2.getFaceUp() % wildNum == 0){
+            JOptionPane.showMessageDialog(null,"You rolled a multiple"
+                    + " of the wild number. You have lost all points gained this turn. \nYour current score: "
+                    + players[currentPlayer].getPlayerScore());
             this.nextPlayer();
             this.roll();
         }

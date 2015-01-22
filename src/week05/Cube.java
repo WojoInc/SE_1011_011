@@ -3,7 +3,7 @@ package week05;
 import java.util.Random;
 
 /**
- * Purpose:
+ * Purpose: This class serves as a blueprint for a die that can be used in various games.
  *
  * @author:wesolowskitj
  * @version: 1.1
