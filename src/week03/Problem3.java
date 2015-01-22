@@ -1,12 +1,12 @@
 package week03;
 
 /**
- * Purpose:
+ * Purpose: To print the sum of numbers 1 to 5 as well as the product of these numbers.
  *
- * @author:Owner
+ * @author:wesolowskitj
  * @version: 1.1
  * <p/>
- * Created by Owner on 1/9/2015 at 6:49 PM.
+ * Created on 1/9/2015 at 6:49 PM.
  */
 public class Problem3 {
 

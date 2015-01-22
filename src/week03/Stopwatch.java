@@ -2,11 +2,13 @@ package week03;
 
 /**
  * Purpose:
+ * This class serves as a means of calculating execution time within a program and makes use of system.nanotime to
+ * achieve accurate results down to the nearest nanosecond.
  *
- * @author:Owner
+ * @author:wesolowskitj
  * @version: 1.1
  * <p/>
- * Created by Owner on 12/18/2014 at 2:30 PM.
+ * Created on 12/18/2014 at 2:30 PM.
  */
 public class Stopwatch {
     float startTime;
@@ -27,7 +29,7 @@ public class Stopwatch {
     }
     public float returnTimeMilliseconds(float time){
         return time /1000000;
-    }
+    }//divides accordingly to output in milli instead of nano
 
     public void stopWatch(){
 

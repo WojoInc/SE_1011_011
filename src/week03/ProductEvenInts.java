@@ -3,12 +3,12 @@ package week03;
 import java.util.Scanner;
 
 /**
- * Purpose:
+ * Purpose: To print the product of all the even integers from 2 to the user inputted integer.
  *
- * @author:Owner
+ * @author:wesolowskitj
  * @version: 1.1
  * <p/>
- * Created by Owner on 1/9/2015 at 6:55 PM.
+ * Created on 1/9/2015 at 6:55 PM.
  */
 public class ProductEvenInts {
     public static void main(String[] args) {

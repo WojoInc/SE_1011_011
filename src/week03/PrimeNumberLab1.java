@@ -1,10 +1,12 @@
 package week03;
 
 /**
- * Purpose:
- * <p/>
- * <p/>
- * Created by Owner on 12/18/2014 at 12:20 AM.
+ * Purpose: This class uses worker methods to effectively count the number of primes between one and an integer
+ * given by user input. It implements the multiple technique rather than the traditional division technique.
+ *
+ * @author:wesolowskitj
+ * @version:2.2
+ * Created on 12/18/2014 at 12:20 AM.
  */
 
 import javax.swing.*;
