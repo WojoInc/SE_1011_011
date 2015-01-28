@@ -61,6 +61,7 @@ public class arrayDriver {
     public static void main(String[] args) {
         Banner welcome = new Banner("ArrayPractice","This program will calculate the likelihood of rolling each face\n"+
         "of a die on as many rolls of as many dice as the user inputs.","wesolowskitj");
+
         JOptionPane.showMessageDialog(null,welcome.getDescription(),welcome.getTitle(),1);
         JOptionPane.showMessageDialog(null, "Created by: " + welcome.getAuthor());
 
