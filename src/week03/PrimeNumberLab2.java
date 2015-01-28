@@ -1,40 +1,54 @@
 package week03;
 
 /**
- * Purpose:
- * <p/>
- * <p/>
- * Created by Owner on 12/18/2014 at 12:20 AM.
+ * Purpose: This class uses worker methods to effectively count the number of primes between one and an integer
+ * given by user input. It implements the multiple technique rather than the traditional division technique.
+ *
+ * @author:wesolowskitj
+ * @version:2.2
+ * Created on 12/18/2014 at 12:20 AM.
  */
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class PrimeNumberLab2 {
 
-    public static void getInput(){
+    public static final int MAX_RANGE = 9999999;
+
+    public static int[] filterRange(String userInput){
+        int inputNum = Integer.parseInt(userInput);
+        int index = 0;
+        int[] output;
+        if(inputNum > MAX_RANGE){
+            index = inputNum % MAX_RANGE;
+            if(inputNum % MAX_RANGE > 0){
+                index++;
+            }
+            output = new int[index];
+            output[0] = MAX_RANGE;
+            for (int i=1; i<index-1; i++){
+                output[i] = output[i-1] + MAX_RANGE;
+            }
+            output[index -1] = inputNum % MAX_RANGE;
+        }
+        else{
+            output = new int[1];
+            output[0] = inputNum;
+        }
+        return output;
+    }
+
+    public static String[] getInput(){
         String userString, option = "";
+        String [] output = new String[2];
         JOptionPane.showMessageDialog(null, "Welcome, this program will determine the number of "
                 + "primes between 0 and a number you input. Including 1.");     
         userString = JOptionPane.showInputDialog("Please input a number: ");
         option = JOptionPane.showInputDialog("Print verbose output? (y/n)");
+        output[0] = userString;
+        output[1] = option;
 
-        ArrayList<Integer> output = new ArrayList<Integer>();
-        int numberOfPrimes = 0;
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.start();
-        output = sieve(Integer.parseInt(userString));
-
-        if (option.compareTo("y")== 0){
-            numberOfPrimes = countPrimes(output, Integer.parseInt(userString), true);
-        }
-        else{
-            numberOfPrimes = countPrimes(output, Integer.parseInt(userString), false);
-        }
-        stopwatch.stop();
-        System.out.println("Completed in: " + stopwatch.returnTimeMilliseconds(stopwatch.exeTime) + " milliseconds.");
-
-        JOptionPane.showMessageDialog(null,"There are " + numberOfPrimes + " primes.");
+        return output;
     }
 
     /**
@@ -45,13 +59,13 @@ public class PrimeNumberLab2 {
      * @param verbose true: print a list of all primes in console false: save time by skipping verbose output.
      * @return integer representing the number of primes in the inputted array
      */
-    public static int countPrimes(ArrayList<Integer> siftedPan, int userInput, boolean verbose){
+    public static int countPrimes(int[] siftedPan, int userInput, boolean verbose){
         //count all primes in array
         int numberPrimes =0;
         for(int k = 0; k <= userInput; k++){
-            if(siftedPan.get(k).intValue() != 0){
+            if(siftedPan[k] != 0){
                 if (verbose){
-                    System.out.println(siftedPan.get(k).intValue());
+                    System.out.println(siftedPan[k]);
                 }
                 numberPrimes++;
             }
@@ -65,14 +79,13 @@ public class PrimeNumberLab2 {
      * @param userInput integer representing the number to generate up to
      * @return returns the number of primes calculated
      */
-    public static ArrayList<Integer> sieve(int userInput){
+    public static int[] sieve(int userInput){
 
         //create an array that holds all numbers between 0 and user number
-        ArrayList<Integer> primes = new ArrayList<Integer>();
 
-
+        int [] primes = new int[userInput +1 ];
         for(int i = 0; i <= userInput ; i++){
-            primes.add(Integer.valueOf(i));
+            primes[i] = i;
         }
         /*follow the process of the "Sieve of Eratosthenes"
         begin with the the first prime, 2, and delete every multiple of the prime from the array,
@@ -83,14 +96,14 @@ public class PrimeNumberLab2 {
         for (int j = 2; j < Math.sqrt(userInput); j++){
             int currentMultiple = 2;
             //get the value of the next prime in the array
-            while (primes.get(j).intValue() == 0){
+            while (primes[j] == 0){
                 j++;
             }
 
             //remove all multiples of the prime
             while ((j * currentMultiple) <= userInput){
 
-                primes.set((j * currentMultiple),Integer.valueOf(0));
+                primes[j * currentMultiple] = 0;
                 currentMultiple++;
 
             }
@@ -101,7 +114,26 @@ public class PrimeNumberLab2 {
     }
     public static void main(String[] args) {
 
-        getInput();
+        String[] inputStrings = getInput();
+        int[] output = new int[Integer.parseInt(inputStrings[0]) + 1];
+        int numberOfPrimes = 0;
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.start();
+        int[] parsedInput = filterRange(inputStrings[0]);
+        for(int i =0; i <parsedInput.length; i++){
+            output = sieve(parsedInput[i]);
+            if (inputStrings[1].compareTo("y")== 0){
+                numberOfPrimes+= countPrimes(output, parsedInput[i], true);
+            }
+            else{
+                numberOfPrimes+= countPrimes(output, parsedInput[i], false);
+            }
+        }
+
+        stopwatch.stop();
+        System.out.println("Completed in: " + stopwatch.returnTimeMilliseconds(stopwatch.exeTime) + " milliseconds.");
+
+        JOptionPane.showMessageDialog(null,"There are " + numberOfPrimes + " primes.");
 
     }
 }
