@@ -25,8 +25,8 @@ public class ItemInventory {
             numberRemoved = numberRemove;
         }
         else{
-            itemNumber = 0;
             numberRemoved = itemNumber;
+            itemNumber = 0;
             JOptionPane.showMessageDialog(null,"You have run out of: " + this.itemName + "s.");
         }
         return numberRemoved;

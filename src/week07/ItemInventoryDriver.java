@@ -17,7 +17,7 @@ public class ItemInventoryDriver {
         numItems = Integer.parseInt(JOptionPane.showInputDialog("How many different items would you like to add?"));
         output = new String[numItems];
         for(int i=0; i<numItems; i++){
-            output[i] = JOptionPane.showInputDialog("Please input the name of item " + i );
+            output[i] = JOptionPane.showInputDialog("Please input the name of item " + (i +1) );
         }
 
         return output;
@@ -42,6 +42,7 @@ public class ItemInventoryDriver {
             System.out.println("Qty: " + currentItem.getItemNumber());
             System.out.println("Unit Price: " + currentItem.getItemUnitPrice());
             System.out.println("Total Value: " + currentItem.getCurrentInventoryValue());
+            System.out.println();
         }
     }
     public static ItemInventory[] removeStock(ItemInventory[] items){
@@ -49,7 +50,7 @@ public class ItemInventoryDriver {
         for(int i=0; i<items.length; i++){
             ItemInventory currentItem = items[i];
             numberToRemove = Integer.parseInt(JOptionPane.showInputDialog("Were there any " + currentItem.getItemName() +"s sold?"));
-            System.out.println("You removed: " + currentItem.removeSold(numberToRemove) + " " + currentItem.getItemName() + "(s) to inventory.");
+            System.out.println("You removed: " + currentItem.removeSold(numberToRemove) + " " + currentItem.getItemName() + "(s) from inventory.");
         }
         return items;
     }
@@ -58,7 +59,8 @@ public class ItemInventoryDriver {
         for(int i=0; i<items.length; i++){
             ItemInventory currentItem = items[i];
             numberToAdd = Integer.parseInt(JOptionPane.showInputDialog("Were there any " + currentItem.getItemName() +"s received?"));
-            System.out.println("You added: " + currentItem.removeSold(numberToAdd) + " " + currentItem.getItemName() + "(s) to inventory.");
+            currentItem.addShipment(numberToAdd);
+            System.out.println("You added: " + numberToAdd + " " + currentItem.getItemName() + "(s) to inventory.");
         }
         return items;
     }
