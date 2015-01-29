@@ -20,6 +20,7 @@ public class ItemInventoryDriver {
             output[i] = JOptionPane.showInputDialog("Please input the name of item " + (i +1) );
         }
 
+
         return output;
     }
     public static ItemInventory[] stockInventory(String[] itemNames){
