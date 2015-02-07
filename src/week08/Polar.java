@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
  */
 public class Polar {
     private double radians;
-    private double amplitude;
+    private double magnitude;
     private double degrees;
 
    /*public Polar(double degrees, double amplitude){
@@ -20,9 +20,9 @@ public class Polar {
         this.amplitude = amplitude;
         this.radians = getRadians();
     }*/
-    public Polar(double radians, double amplitude){
+    public Polar(double radians, double magnitude){
         this.radians = radians;
-        this.amplitude = amplitude;
+        this.magnitude = magnitude;
         this.degrees = getDegrees();
 }
     public Polar(){
@@ -34,11 +34,11 @@ public class Polar {
     public double getRadians(){
         return radians;
     }
-    public double getAmplitude(){ return amplitude; }
+    public double getMagnitude(){ return magnitude; }
     public String toString(){
         String output;
         DecimalFormat DF = new DecimalFormat("#.####");
-        output = "Vector value: " + DF.format(amplitude) + " at " + degrees + " degrees.";
+        output = "Vector magnitude: " + DF.format(magnitude) + " at " + degrees + " degrees.";
         return output;
     }
 }
