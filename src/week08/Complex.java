@@ -52,8 +52,6 @@ public class Complex {
      * @return a resulting quotient, represented as a complex number.
      */
     public Complex divide(Complex input){
-        double[] foil = new double[4];
-        double[] divisor = new double[4];
         Complex numerator = this.multiply(input.conjugate());
         Complex denominator = input.multiply(input.conjugate());
 

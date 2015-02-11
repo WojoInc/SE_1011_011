@@ -72,8 +72,8 @@ public class ComplexDriver {
         b[2] = new Complex(1,-1);
         for(int i=0; i<a.length; i++){
             for(int j=0; j<b.length; j++){
-                System.out.println("Sum of: (" + a[i].getReal() + ") (" + a[i].getImaginary()+") + ("
-                        +b[j].getReal() + ") (" + b[j].getImaginary()+") = " + a[i].add(b[j]));
+                System.out.println("Sum of: (" + a[i]+ ") + ("
+                        +b[j]+") = " + a[i].add(b[j]));
             }
         }
     }
@@ -89,8 +89,8 @@ public class ComplexDriver {
         b[2] = new Complex(1,-1);
         for(int i=0; i<a.length; i++){
             for(int j=0; j<b.length; j++){
-                System.out.println("Difference of: (" + a[i].getReal() + ") (" + a[i].getImaginary()+") - ("
-                        +b[j].getReal() + ") (" + b[j].getImaginary()+") = " + a[i].subtract(b[j]));
+                System.out.println("Difference of: (" + a[i]+") - ("
+                        +b[j]+ ") = " + a[i].subtract(b[j]));
             }
         }
     }
