@@ -38,7 +38,7 @@ public class Polar {
     public String toString(){
         String output;
         DecimalFormat DF = new DecimalFormat("#.####");
-        output = "Vector magnitude: " + DF.format(magnitude) + " at " + degrees + " degrees.";
+        output = "Vector magnitude: " + DF.format(magnitude) + " at " + DF.format(degrees) + " degrees.";
         return output;
     }
 }

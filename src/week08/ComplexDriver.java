@@ -124,14 +124,15 @@ public class ComplexDriver {
         b[2] = new Complex(3,-1);
         for(int i=0; i<a.length; i++){
             for(int j=0; j<b.length; j++){
-                System.out.println("The quotient of: (" + a[i] + ") x (" + b[j] + ") is (" + a[i].divide(b[j])+ ").");
+                System.out.println("The quotient of: (" + a[i] + ") / (" + b[j] + ") is (" + a[i].divide(b[j])+ ").");
             }
         }
     }
     public static void polarTest(){
         Complex test = new Complex(1,1);
-
+        Complex test2 = new Complex(3.5,6);
         System.out.println(test.toPolar());
+        System.out.println(test2.toPolar());
     }
     public static void main(String[] args) {
         toStringTest();
