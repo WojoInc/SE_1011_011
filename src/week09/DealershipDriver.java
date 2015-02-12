@@ -15,7 +15,7 @@ public class DealershipDriver {
     public ArrayList<Vehicle> getInitialInventory(){
         String quit = "";
         while(quit.compareTo("q") == 0){
-            //JOptionPane.showInputDialog()
+
         }
         return null;
     }
