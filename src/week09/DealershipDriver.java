@@ -30,7 +30,6 @@ public class DealershipDriver {
     public static ArrayList<Vehicle> sellInventory(ArrayList<Vehicle>inventory){
         Iterator<Vehicle> iterator = inventory.iterator();
         Scanner stdIn = new Scanner(System.in);
-        printInventory(inventory);
         System.out.println("Type the number of the vehicle sold: ");
         inventory.remove(stdIn.nextInt()-1);
 
