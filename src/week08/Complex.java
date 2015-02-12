@@ -1,7 +1,8 @@
 package week08;
 
 /**
- * Purpose:
+ * Purpose:A class used to represent complex numbers, includes functions for working with these numbers,
+ * and also overrides the default toString() method for easier output to console or GUI.
  *
  * @author:wesolowskitj
  * @version: 1.1
@@ -99,8 +100,23 @@ public class Complex {
     public Polar toPolar(){
         return new Polar(Math.atan(imaginary/real), Math.sqrt((real*real) + (imaginary*imaginary)));
     }
+
+    /**
+     * Returns the real part only of a complex number
+     * @return the real part of the complex number, expressed as a double
+     */
     public double getReal(){return real;}
+
+    /**
+     * Returns the imaginary part only of a complex number
+     * @return the imaginary part of the complex number, expressed as a double
+     */
     public double getImaginary(){return real;}
+
+    /**
+     * Overrides default toString() method to allow for easier output to console
+     * @return The properly formatted complex number
+     */
     public String toString(){
         String output = "";
         if(real ==0 && imaginary ==0){

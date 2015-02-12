@@ -6,7 +6,8 @@ import javax.swing.*;
 import java.text.DecimalFormat;
 
 /**
- * Purpose:
+ * Purpose:To create an array of objects, in this case Cubes, which can then be accessed through the array to find the
+ * probability of rolling each side of the die by rolling each die a specified number of times.
  *
  * @author:wesolowskitj
  * @version: 1.1

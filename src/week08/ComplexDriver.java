@@ -3,11 +3,10 @@ package week08;
 import week04.Banner;
 
 /**
- * Purpose:
+ * Purpose: To test the various methods of the Complex class.
  *
  * @author:wesolowskitj
  * @version: 1.1
- * <p/>
  * Created by wesolowskitj on 2/5/2015 at 2:26 PM.
  */
 public class ComplexDriver {

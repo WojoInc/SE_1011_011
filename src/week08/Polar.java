@@ -3,11 +3,10 @@ package week08;
 import java.text.DecimalFormat;
 
 /**
- * Purpose:
+ * Purpose:A class to represent Polar coordinates, also includes basic methods for working with polar coordinates.
  *
  * @author:wesolowskitj
  * @version: 1.1
- * <p/>
  * Created by wesolowskitj on 2/6/2015 at 7:54 PM.
  */
 public class Polar {
@@ -15,11 +14,6 @@ public class Polar {
     private double magnitude;
     private double degrees;
 
-   /*public Polar(double degrees, double amplitude){
-        this.degrees = degrees;
-        this.amplitude = amplitude;
-        this.radians = getRadians();
-    }*/
     public Polar(double radians, double magnitude){
         this.radians = radians;
         this.magnitude = magnitude;
