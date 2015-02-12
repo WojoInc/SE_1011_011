@@ -13,7 +13,7 @@ public class Truck extends Vehicle {
 
     @Override
     public String toString() {
-        return getModelYear()+" "+getMake()+" "+getModel() + " " + engineType;
+        return getModelYear()+" "+getMake()+" "+getModel() + " in " +getColor() + " (" +engineType+")";
     }
     public String getEngineType(){
         return engineType;
