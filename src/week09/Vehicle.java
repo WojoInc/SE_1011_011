@@ -1,7 +1,8 @@
 package week09;
 
 /**
- * Purpose:
+ * Purpose: A basic vehicle class that contains the simple methods and attributes relating to a vehicle, and
+ * can be extended for use with specific vehicle type classes.
  *
  * @author:wesolowskitj
  * @version: 1.1
